@@ -20,7 +20,7 @@ function App() {
   }
 
   const toggleComplete=(id)=>{
-    setTodos((prev)=>prev.map((prevTodo)=>prevTodo===id?{...prevTodo,completed:!prevTodo.completed}:prevTodo))
+    setTodos((prev)=>prev.map((prevTodo)=>prevTodo.id===id?{...prevTodo,completed:!prevTodo.completed}:prevTodo))
   }
 
   useEffect(()=>{
@@ -49,11 +49,11 @@ function App() {
                     </div>
                     <div className="flex flex-wrap gap-y-3">
                         {/*Loop and Add TodoItem here */}
-                        {todos.map((todo)=>{
+                        {todos.map((todo)=>(
                           <div key={todo.id} className='w-full'>
                             <TodoItem todo={todo} />
                           </div>
-                        })}
+                        ))}
                     </div>
                 </div>
             </div>
